@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+/* .btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(100%);
+  z-index: 0;
+}
+
+.btn:hover {
+}
+.btn:hover::after {
+  transform: translateY(0);
+} */
+
+.main-text {
+  font-weight: 700;
+  font-size: 1.875em;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.secondary-text {
+  font-weight: 500;
+  font-size: 1.375em;
+  line-height: 1.35;
+}
+
+.general-text {
+  font-size: 1.125em;
+}
+
+@media (min-width: 480px) {
+  .main-text {
+    font-size: 2.25em;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 640px) {
+  .main-text {
+    font-size: 3em;
+    line-height: 1;
+  }
+
+  .secondary-text {
+    font-size: 1.5em;
+    line-height: 1.35em;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-text {
+    font-size: 3.75em;
+    line-height: 1;
+  }
+
+  .secondary-text {
+    font-size: 1.875em;
+    line-height: 1.35em;
+  }
+
+  .general-text {
+    font-size: 1.25em;
+  }
+}
+@media (min-width: 1024px) {
+  /* styles applied to screens with a minimum width of 768px */
+  .main-text {
+    font-size: 4.5em;
+    line-height: 1;
+  }
+}
+@media (min-width: 1200px) {
+  /* styles applied to screens with a minimum width of 768px */
+  .main-text {
+    font-size: 6em;
+    line-height: 1;
+  }
+}
