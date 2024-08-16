@@ -2,7 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Header from "../sections/Header";
 import Footer from "../sections/Footer";
 
-const Layout = () => {
+const Layout = ({ about }) => {
   const location = useLocation();
   const isContactPage = location.pathname === "/contact";
 
@@ -16,7 +16,7 @@ const Layout = () => {
     >
       <Header isContactPage={isContactPage} />
       <Outlet />
-      <Footer isContactPage={isContactPage} />
+      <Footer isContactPage={isContactPage} about={about} />
     </main>
   );
 };

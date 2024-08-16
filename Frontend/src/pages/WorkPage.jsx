@@ -5,11 +5,13 @@ import { useEffect } from "react";
 
 const WorkPage = ({ projects, about }) => {
   const aboutData = about[0];
+  console.log(projects);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
 
+  console.log(projects);
   const firstHeadingVariants = {
     hidden: {
       y: "100%", // Position the h1 element 100% below its container
@@ -40,12 +42,12 @@ const WorkPage = ({ projects, about }) => {
         </div>
 
         <motion.h2
-          className="mt-9 sm:mt-40 md:mt-60 lg:mt-96 mb-40 max-w-[464px] secondary-text"
+          className="mt-9 sm:mt-40 md:mt-60 lg:mt-80 mb-40 max-w-[480px] secondary-text"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 1.25 }}
         >
-          {aboutData.text[0]}
+          {aboutData.text.workPageText}
         </motion.h2>
       </div>
       <motion.div

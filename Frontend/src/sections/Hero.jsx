@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 
 const Hero = ({ about }) => {
   const aboutData = about[0];
+  console.log(aboutData);
   const firstHeadingVariants = {
     hidden: {
       y: "100%", // Position the h1 element 100% below its container
@@ -63,7 +64,7 @@ const Hero = ({ about }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.75, delay: 1.25 }}
       >
-        {aboutData.text[0]}
+        {aboutData.text.homePageSubtitle}
       </motion.h2>
     </div>
   );

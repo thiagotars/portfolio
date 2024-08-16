@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Header = (props) => {
-  const { isContactPage } = props;
+const Header = ({ isContactPage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -32,15 +31,15 @@ const Header = (props) => {
       ></Link>
       <nav className="md:flex hidden">
         <ul className="flex general-text">
-          <li className="" id="works">
+          <li className="hover:underline" id="works">
             <Link to="/projects">work</Link>
           </li>
-          <span className="mr-2">, </span>
-          <li className="" id="about">
+          <span className="mr-2 ">, </span>
+          <li className="hover:underline" id="about">
             <Link to="/about">about</Link>
           </li>
           <span className="mr-2">, </span>
-          <li className="" id="contact">
+          <li className="hover:underline" id="contact">
             <Link to="/contact">contact</Link>
           </li>
         </ul>

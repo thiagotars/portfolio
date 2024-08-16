@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
 
 const Work = ({ projects }) => {
-  const selectedProjects = projects.filter(
-    (project) => project.isSelected === true
-  );
+  console.log(projects);
+  const selectedProjects =
+    projects.filter((project) => project.isSelected == true) || null;
 
   return (
     <motion.div
@@ -21,9 +21,13 @@ const Work = ({ projects }) => {
       </div>
 
       <div>
-        {selectedProjects.map((project, index) => {
-          return <ProjectCard key={index} project={project} />;
-        })}
+        {selectedProjects ? (
+          selectedProjects.map((project, index) => {
+            return <ProjectCard key={index} project={project} />;
+          })
+        ) : (
+          <h2>Loading..</h2>
+        )}
       </div>
 
       <div className="flex w-full">
@@ -31,7 +35,7 @@ const Work = ({ projects }) => {
         <div className="flex w-full lg:w-3/5">
           <Link to="/projects">
             <button
-              className="overflow-hidden relative text-inter general-text py-3 px-14 border-black border rounded-full mt-16 lg:mt-24 tracking-tight"
+              className="overflow-hidden relative text-inter general-text py-3 px-14 border-black border rounded-full mt-16 lg:mt-24 tracking-tight hover:bg-black hover:text-white transition duration-300"
               id="works-btn"
             >
               More projects

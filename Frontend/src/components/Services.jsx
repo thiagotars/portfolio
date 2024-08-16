@@ -1,9 +1,24 @@
-const Services = () => {
+const Services = ({ about }) => {
+  const aboutData = about[0] || null;
   return (
     <div className="mt-32 lg:mt-60">
-      <h1 className="main-text">SERVICES</h1>
-      <div className="general-text flex flex-col lg:flex-row py-12 lg:py-16 mt-6 border-y">
-        <div className="flex gap-4 md:gap-6 lg:gap-8 w-full lg:w-2/5">
+      <h1 className="main-text mb-12">SERVICES</h1>
+
+      {aboutData.services.map((service, index) => (
+        <div
+          key={index}
+          className={`general-text flex flex-col lg:flex-row py-12 lg:py-16 ${index !== 1 ? "border-y" : ""}`}
+        >
+          <div className="flex gap-4 md:gap-6 lg:gap-8 w-full lg:w-2/5">
+            <p className="">{String.fromCharCode(97 + index)}/</p>
+            <p className="font-semibold w-full lg:max-w-32">{service.role}</p>
+          </div>
+          <p className="max-w-full lg:max-w-[624px] w-full lg:w-3/5 mt-6 lg:mt-0">
+            {service.description}
+          </p>
+        </div>
+      ))}
+      {/* <div className="flex gap-4 md:gap-6 lg:gap-8 w-full lg:w-2/5">
           <p className="">a/</p>
           <p className="font-semibold w-full lg:max-w-32">
             Infomation Architecture
@@ -13,9 +28,9 @@ const Services = () => {
           We’ll have a look at what content should be on the site, which
           shouldn’t and what goes on which page. By thinking about the structure
           in user funnels we’ll define a path for the user towards conversion.
-        </p>
-      </div>
-      <div className="general-text flex flex-col lg:flex-row py-12 lg:py-16">
+        </p> */}
+
+      {/* <div className="general-text flex flex-col lg:flex-row py-12 lg:py-16">
         <div className="flex gap-4 md:gap-6 lg:gap-8 w-full lg:w-2/5">
           <p className="">b/</p>
           <p className="font-semibold w-full lg:max-w-32">
@@ -40,7 +55,7 @@ const Services = () => {
           I plan, design, build, test and maintain scalable front end web
           applications.
         </p>
-      </div>
+      </div> */}
     </div>
   );
 };
