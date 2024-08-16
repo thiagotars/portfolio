@@ -1,4 +1,4 @@
-import "./App.css";
+import "./index.css";
 
 import {
   Route,
@@ -15,6 +15,7 @@ import ContactPage from "./pages/ContactPage";
 import Project from "./pages/Project";
 import { useState, useEffect } from "react";
 import { urlFor, client } from "./client";
+
 function App() {
   // State for projects, loading, and error
   const [projects, setProjects] = useState(null);
