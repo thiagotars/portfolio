@@ -15,11 +15,12 @@ import { useState, useEffect } from "react";
 import { urlFor, client } from "./client";
 
 function App() {
-  // State for projects, loading, and error
+
   const [projects, setProjects] = useState(null);
   const [abouts, setAbouts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  
   useEffect(() => {
     const query = '*[_type == "about"]';
     client.fetch(query).then((data) => setAbouts(data));
@@ -29,45 +30,8 @@ function App() {
     const query = '*[_type == "project"]';
     client.fetch(query).then((data) => setProjects(data));
   }, []);
-  // Fetch data on component mount
-  // useEffect(() => {
-  //   const fetchProjectData = async () => {
-  //     setIsLoading(true);
-  //     try {
-  //       const response = await fetch("http://localhost:5555/api/projects"); // Replace with your actual API endpoint
-  //       const data = await response.json();
-  //       setProjects(data);
-  //     } catch (err) {
-  //       setError(err);
-  //       console.error("Error fetching projects:", err);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
 
-  //   fetchProjectData();
-  // }, []);
 
-  // useEffect(() => {
-  //   const fetchAboutData = async () => {
-  //     setIsLoading(true);
-  //     try {
-  //       const response = await fetch("http://localhost:5555/api/about"); // Replace with your actual API endpoint
-  //       const data = await response.json();
-  //       setAboutData(data);
-  //     } catch (err) {
-  //       setError(err);
-  //       console.error("Error fetching projects:", err);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
-
-  //   fetchAboutData();
-  // }, []);
-  console.log(abouts);
-  console.log(projects);
-  // Router configuration, passing projects and loading state as props
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout about={abouts} />}>

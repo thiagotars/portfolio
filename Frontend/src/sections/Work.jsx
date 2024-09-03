@@ -6,7 +6,7 @@ const Work = ({ projects }) => {
   console.log(projects);
   const selectedProjects =
     projects.filter((project) => project.isSelected == true) || null;
-
+  
   return (
     <motion.div
       id="works-section"
