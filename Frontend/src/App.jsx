@@ -46,11 +46,11 @@ function App() {
           }
         />
         <Route
-          path="work"
+          path="projects"
           element={<WorkPage projects={projects} about={abouts} />}
         />
         <Route
-          path="/work/:id"
+          path="/projects/:id"
           element={<Project projects={projects} about={abouts} />}
         />
         <Route path="about" element={<AboutPage about={abouts} />} />
@@ -65,7 +65,6 @@ function App() {
     <>
       {projects && abouts ? (
         <RouterProvider router={router}>
-          {/* Conditionally render loading state while fetching data */}
           {isLoading && <p>Loading projects...</p>}
           {error && <p>Error fetching projects: {error.message}</p>}
         </RouterProvider>

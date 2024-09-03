@@ -32,7 +32,7 @@ const Header = ({ isContactPage }) => {
       <nav className="md:flex hidden">
         <ul className="flex general-text">
           <li className="hover:underline" id="works">
-            <Link to="/projects">work</Link>
+            <Link to="/projects">projects</Link>
           </li>
           <span className="mr-2 ">, </span>
           <li className="hover:underline" id="about">
@@ -58,7 +58,7 @@ const Header = ({ isContactPage }) => {
             <ul className="flex flex-col gap-12 general-text text-white text-center">
               <li className="hover:underline" id="works">
                 <Link to="/projects" onClick={toggleMenu}>
-                  work
+                  projects
                 </Link>
               </li>
 
