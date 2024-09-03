@@ -11,16 +11,16 @@ import WorkPage from "./pages/WorkPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import Project from "./pages/Project";
+import NotFoundPage from "./pages/NotFoundPage";
 import { useState, useEffect } from "react";
 import { urlFor, client } from "./client";
 
 function App() {
-
   const [projects, setProjects] = useState(null);
   const [abouts, setAbouts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  
+
   useEffect(() => {
     const query = '*[_type == "about"]';
     client.fetch(query).then((data) => setAbouts(data));
@@ -30,7 +30,6 @@ function App() {
     const query = '*[_type == "project"]';
     client.fetch(query).then((data) => setProjects(data));
   }, []);
-
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -47,15 +46,17 @@ function App() {
           }
         />
         <Route
-          path="projects"
+          path="work"
           element={<WorkPage projects={projects} about={abouts} />}
         />
         <Route
-          path="/projects/:id"
+          path="/work/:id"
           element={<Project projects={projects} about={abouts} />}
         />
         <Route path="about" element={<AboutPage about={abouts} />} />
         <Route path="contact" element={<ContactPage about={abouts} />} />
+
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     )
   );
